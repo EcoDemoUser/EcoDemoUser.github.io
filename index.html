@@ -72,12 +72,28 @@
 
     <section>
         <div class="chart-description">
-            <h2>Week 2: A basic chart</h2>
+            <h2>Week 2: Sourcing data</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 
             </p>
         </div>
-        <figure id="chart4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <!-- <figure id="chart4"></figure> we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <!-- <figure id="chart5" style="width: 90%; min-width: 400px;"></figure> -->
+        <!-- <figure id="chart5"></figure> -->
+
+    </section>
+
+
+    <section>
+        <div class="chart-description">
+            <h2>Week 3: Charting with Python</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                
+            </p>
+        </div>
+        <!-- <figure id="chart4"></figure> we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        <!-- <figure id="chart5" style="width: 90%; min-width: 400px;"></figure> -->
+        <figure id="chart6"></figure>
 
     </section>
 
@@ -102,6 +118,9 @@
         vegaEmbed('#chart3', figure_3_spec)
 
         vegaEmbed('#chart4', figure_4_spec)
+        vegaEmbed('#chart5', "wk2_ecoapi.json")
+
+        vegaEmbed('#chart6', 'wk3_pe_ratio_chart.json')
 
         // Do you want to add more graphs?
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
