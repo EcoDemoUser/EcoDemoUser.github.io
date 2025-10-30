@@ -79,7 +79,7 @@
         </div>
         <!-- <figure id="chart4"></figure> we give it an id so we can put a vega-lite graph here with VegaEmbed -->
         <!-- <figure id="chart5" style="width: 90%; min-width: 400px;"></figure> -->
-        <!-- <figure id="chart5"></figure> -->
+        <figure id="chart5" style="width: 80%; min-width: 400px"></figure>
 
     </section>
 
@@ -95,6 +95,17 @@
         <!-- <figure id="chart5" style="width: 90%; min-width: 400px;"></figure> -->
         <figure id="chart6"></figure>
 
+
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>Week 4: Live charts</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                
+            </p>
+        </div>
+        <figure id="chart7"></figure>
     </section>
 
     <!-- Do you want to add more sections? -->
@@ -121,6 +132,8 @@
         vegaEmbed('#chart5', "wk2_ecoapi.json")
 
         vegaEmbed('#chart6', 'wk3_pe_ratio_chart.json')
+
+        vegaEmbed('#chart7', 'wk4_worldbank_live.json')
 
         // Do you want to add more graphs?
         // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML

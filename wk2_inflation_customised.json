@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "description": "FRED data, USA inflation, yearly change",
+
+  "data": {"url": "https://raw.githubusercontent.com/EcoDemoUser/EcoDemoUser.github.io/refs/heads/main/data/us_inflation.csv"},
+
+  "title": {
+    "text": "A history of inflation: USA",
+    "color": "darkblue",
+    "fontSize": 14,
+    "subtitle": ["CPI, annual % change", "Source: FRED (CPIAUCSL)"],
+    "subtitleFontSize": 10,
+    "subtitleColor": "#666666",
+    "anchor": "start",
+    "offset": 12
+  },
+  "mark": {
+    "type": "bar",
+    "color": "#fb612b"
+  },
+  "width": 350,
+  "height": 280,
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "",
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "",
+        "labelExpr": "datum.value + '%'",
+        "gridDash": [1,1]
+      }
+    }
+  }
+}

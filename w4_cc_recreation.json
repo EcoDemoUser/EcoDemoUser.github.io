@@ -1,0 +1,116 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "description": "FT chart recreation, vX. Custom ordering of bars and legend values.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jhellingsdata/jhellingsdata.github.io/refs/heads/main/Data/ONS_UK_housebuilding_long.csv"
+    },
+    "view": {
+        "stroke": "transparent"
+    },
+    "config": {
+      "font": "Metric Web"
+    },
+    "background": "#fff1e5",
+    "width": 400,
+    "height": 250,
+    "title": {
+      "text": "The UK has not built 300,000 homes a year since 1977",
+      "subtitle": "Completed dwellings (000)",
+      "anchor": "start",
+      "color": "#333333",
+      "subtitleColor": "#4D4845",
+      "fontSize": 15,
+      "subtitleFontSize": 11,
+      "fontWeight": "lighter",
+      "offset": 12,
+      "subtitlePadding": 10
+    },
+    "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "stroke": "#fff1e5",
+            "strokeWidth": 0.7,
+            "tooltip": {"expr": "datum.Sector + ' (' + year(datum.Period) + '): ' + format(datum.Completed, ',')"}
+          },
+          "encoding": {
+            "x": {
+              "field": "Period",
+              "type": "temporal",
+              "axis": {
+                "title": "",
+                "grid": false,
+                "domainColor": "rgb(153, 145, 137)",
+                "labelColor": "rgb(77, 72, 69)",
+                "tickCount": 8
+              }
+            },
+            "y": {
+              "field": "Completed",
+              "type": "quantitative",
+              "axis": {
+                "title": "Source: ONS",
+                "titleAngle": 0,
+                "titleY": {"expr": "height + 40"},
+                "titleAlign": "left",
+                "titleColor": "#4D4845",
+                "titleFontWeight": "normal",
+                "titleFontSize": 9,
+                "gridColor": "rgb(204,193,183",
+                "labelColor": "rgb(77, 72, 69)",
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 9,
+                "labelFontSize": 12,
+                "tickCount": 4,
+                "labelExpr": "datum.value / 1000"
+              }
+            },
+            "color": {
+              "field": "Sector",
+              "type": "nominal",
+              "scale": {
+                "range": ["rgb(15,84,153,0.9)", "rgb(112,220,230,0.9)", "rgb(239,101,144,0.9)"],
+                "domain": ["Private enterprise", "Housing associations", "Local authorities"]
+              },
+              "legend": {
+                "orient": "none",
+                "direction": "vertical",
+                "title": null,
+                "legendX": -30,
+                "legendY": -35
+              }
+            },
+            "order": {"field": "max(Completed)"}
+          }
+        },
+        {
+          "data": {"values": [{"x1": "2019-08-01", "x2": "2022-06-01"}]},
+          "mark": {"type": "rect", "opacity": 0.2, "color": "#8f8f8f"},
+          "encoding": {
+            "x": {"field": "x1", "type": "temporal"},
+            "x2": {"field": "x2"}
+          }
+        },
+        { 
+            "data": {"values": [{"target": 300000, "label": ["Labour", "target"]}]},
+            "encoding": {
+              "y": {"field": "target", "type": "quantitative"}
+            },
+            "layer": [
+              {
+                "mark": {"type": "rule", "strokeDash": [6, 6], "strokeWidth": 2.2, "color": "rgb(51,51,51)"}
+              },
+              {
+                "mark": {
+                  "type": "text", "align": "center", "dy": -22, "x": {"expr": "width /2"}, "color": "rgb(51,51,51)"
+                },
+                "encoding": {
+                  "text": {"field": "label", "type": "nominal"}
+                }
+              }
+            ]
+        }
+    ]
+  }
+  
