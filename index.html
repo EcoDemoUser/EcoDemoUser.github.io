@@ -59,7 +59,7 @@
     <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
     <section>
         <div class="chart-description">
-            <h2>Section 1: A basic chart</h2>
+            <h2>Week 1: Finding charts</h2>
             <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
                 As a first example, we're using a basic chart from our repo.
@@ -70,6 +70,20 @@
         <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
         <figure id="Location2"></figure>
         <figure id="Location3"></figure>
+
+    </section>
+
+
+    <section>
+        <div class="chart-description">
+            <h2>Week 2: Making charts</h2>
+            <p>
+                Two charts, created using data I've found on FRED and the ONS. Data was cleaned in Excel to fix date formatting and remove superfluous data from CSV columns. 
+            </p>
+        </div>
+
+        <figure id="Location4"></figure>
+        <figure id="Location5"></figure>
 
     </section>
 
@@ -95,7 +109,10 @@
         // vegaEmbed('#Location2', figure_2_spec)
 
         vegaEmbed('#Location2', "wk1_chart1.json")
-        vegaEmbed('#Location3', "wk1_chart2.json)
+        vegaEmbed('#Location3', "wk1_chart2.json")
+
+        vegaEmbed('#Location4', "wk2_us_diesel.json")
+        vegaEmbed('#Location5', "wk2_uk_chocolate.json")
 
     </script>
 
