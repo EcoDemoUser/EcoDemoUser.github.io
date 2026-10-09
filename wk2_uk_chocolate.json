@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "description": "UK CPI Chocolate prices example. Showing more customisation options. Note: the 'view': {'stroke': 'transparent'} option removes the chart border. Adds a 'domain' property in the 'y' scale, to set a non-zero y-axis.}",
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/EcoDemoUser/EcoDemoUser.github.io/refs/heads/main/uk_choc_prices.csv"
+  },
+
+  "view": {"stroke": "transparent"},
+
+  "title": {
+    "text": "UK chocolate prices",
+    "color": "#5c3f35",
+    "anchor": "start",
+    "subtitle": "Indexed at 2015=100. Source: ONS CPI",
+    "subtitleFontSize": 9,
+    "subtitleFontStyle": "italic",
+    "subtitleColor": "darkgrey"
+  },
+
+  "width": 300,
+  "height": 270,
+
+  "mark": {
+    "type": "line",
+    "color": "#8c4e38",
+    "strokeWidth": 3.5,
+    "interpolate": "basis"
+  },
+
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": "",
+        "grid": false,
+        "domain": false,
+        "tickOpacity": 0.5,
+        "labelPadding": 3
+      }
+    },
+    "y": {
+      "field": "cpi_choc",
+      "type": "quantitative",
+      "axis": {
+        "title": "",
+        "gridDash": [1,1]
+      },
+      "scale": {
+        "domain": [40, 160]
+      }
+    }
+  }
+}
